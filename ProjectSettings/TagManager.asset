@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Walls
+  - Weapon
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Walls
+  - Water
+  - UI
+  - Enemy
+  - Player
+  - Bullet
+  - PlayerCollision
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Backdrop
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Backdrop
+    uniqueID: 1743394219
+    locked: 0
+  - name: Trail
+    uniqueID: 706573863
+    locked: 0
+  - name: Player
+    uniqueID: 521428185
+    locked: 0
+  - name: Enemies
+    uniqueID: 1660888651
+    locked: 0
+  - name: Walls
+    uniqueID: 103350051
+    locked: 0
+  - name: Bullet
+    uniqueID: 1378611745
+    locked: 0
+  - name: UI
+    uniqueID: 2767417515
+    locked: 0
