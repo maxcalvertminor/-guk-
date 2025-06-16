@@ -20,12 +20,12 @@ public class Arm_Actuator_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Left")) {
+        /*if(Input.GetButton("Left")) {
             actuator.transform.Rotate(0, 0, speed * Time.deltaTime);
         }
         if(Input.GetButton("Right")) {
             actuator.transform.Rotate(0, 0, -speed * Time.deltaTime);
-        }
+        }*/
 
         if(attached) {
             float xPos = Input.mousePosition.x - mainCam.WorldToScreenPoint(actuator.transform.position).x;

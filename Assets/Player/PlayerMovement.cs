@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
         body.velocity = direction * speed;
 
         if(Input.GetButtonDown("Dash") && dashCooldown <= 0) {
-            StartCoroutine(Cooldown_Animation(cooldown_obj.GetComponent<SpriteRenderer>()));
+            //StartCoroutine(Cooldown_Animation(cooldown_obj.GetComponent<SpriteRenderer>()));
             dashing = true;
             dashTimer = startDashTimer;
             dashCooldown = cooldown_time;
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    IEnumerator Cooldown_Animation(SpriteRenderer renderer) {
+    /*IEnumerator Cooldown_Animation(SpriteRenderer renderer) {
         float timer = 0;
         int i = 0;
         while(i < cooldown_anim_list.Length) {
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
             }
             yield return null;
         }
-    }
+    }*/
 
     void FixedUpdate() {
         

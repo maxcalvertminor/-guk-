@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class Node
 {
-    public Vector2 position;
-    public float g_Cost;
-    public float h_Cost;
-    public bool is_available;
+    public Vector3 worldPosition;
+    public bool walkable;
+    public int gCost;
+    public int hCost;
+    public int gridX;
+    public int gridY;
+    public Node parent;
 
-    public Node(Vector2 pos) {
-        position = pos;
+    public Node(Vector3 pos, bool w, int _gridX, int _gridY) {
+        worldPosition = pos;
+        walkable = w;
+        gridX = _gridX;
+        gridY = _gridY;
     }
-    public float f_Cost() {
-        return g_Cost + h_Cost;
+    public int fCost {
+        get {
+            return gCost + hCost;
+        }
     }
 
     public bool checkAvailibility() {
-        return is_available;
+        return walkable;
     }
     
 }

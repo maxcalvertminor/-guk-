@@ -5,33 +5,89 @@ using UnityEngine;
 public class NodeGrid : MonoBehaviour
 {
 
-    public RectTransform rect_transform;
-    public int grid_x;
-    public int grid_y;
-    private Node[,] node_grid;
+    //public RectTransform rect_transform;
+    public Transform startObj;
+    public Vector2 gridWorldSize;
+    private int gridSizeX;
+    private int gridSizeY;
+    private Node[,] grid;
     public Node start;
     public Node goal;
-    public float radius;
+    public float nodeRadius;
+    public float seekerRadius;
+    private float nodeDiameter;
+    public LayerMask unwalkable;
+    public Vector3 worldBottomLeft;
 
     // Start is called before the first frame update
     void Start()
     {
-        rect_transform = GetComponent<RectTransform>();
-        node_grid = new Node[grid_y, grid_x];
-        for(int r = 0; r < grid_y; r++) {
-            for(int c = 0; c < grid_x; c++) {
-                node_grid[r, c] = new Node(new Vector2(radius * (2 * c + 1), radius * (2 * r + 1)));
+        nodeDiameter = 2 * nodeRadius;
+        gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
+        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
+        //rect_transform = GetComponent<RectTransform>();
+        CreateGrid();
+    }
+
+    void CreateGrid() {
+        grid = new Node[gridSizeX, gridSizeY];
+        worldBottomLeft = transform.position - (Vector3.right * gridWorldSize.x / 2) - (Vector3.up * gridWorldSize.y / 2);
+
+        for(int x = 0; x < gridSizeX; x++) {
+            for(int y = 0; y < gridSizeY; y++) {
+                Vector3 pos = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
+                bool walkable = !Physics2D.OverlapCircle(pos, seekerRadius, unwalkable);
+                grid[x,y] = new Node(pos, walkable, x, y);
             }
         }
+    }
+
+    public List<Node> GetNeighbors(Node node) {
+        List<Node> neighbors = new List<Node>();
+
+        for(int x = -1; x <= 1; x++) {
+            for(int y = -1; y <= 1; y++) {
+                if(x == 0 && y ==0) {continue;}
+
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if(checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY) {
+                    neighbors.Add(grid[checkX, checkY]);
+                }
+            }
+        }
+
+        return neighbors;
+    }
+    
+    public List<Node> path;
+    void OnDrawGizmos() {
+        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
+        if(grid != null) {
+            foreach(Node n in grid) {
+                Gizmos.color = (n.walkable)?Color.white:Color.red;
+                if(path != null) 
+                    if(path.Contains(n))
+                        Gizmos.color = Color.black;
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.3f));
+            }
+        }
+        
+    }
+
+    public Node NodeFromWorldPoint(Vector3 worldPosition) {
+        float percentX = (worldPosition.x - worldBottomLeft.x) / gridWorldSize.x;
+        float percentY = (worldPosition.y - worldBottomLeft.y) / gridWorldSize.y;
+
+        int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
+        int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        return grid[x, y];
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void Pathing_Round() {
         
     }
 }

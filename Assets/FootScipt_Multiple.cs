@@ -64,7 +64,7 @@ public class FootScript_Multiple : MonoBehaviour
         }
         if(Vector2.Distance(foot_left.transform.position, movement_obj.transform.position) > tolerance) {
             StartCoroutine(StepToPoint(foot_left, movement_obj.transform.TransformPoint(-x, y, z)));
-        } */
+        } 
 
         if(Input.GetButtonDown("Left")) {
             for(int i = 0; i < feet.Length; i++) {
@@ -73,7 +73,7 @@ public class FootScript_Multiple : MonoBehaviour
         }
         if(Input.GetButtonDown("Right")) {
             Debug.Log("Farthest foot " + farthest_foot_index);
-        }
+        } */
     }
 
     IEnumerator MyCoroutine(GameObject foot, Vector3 axle, float deflection) {
