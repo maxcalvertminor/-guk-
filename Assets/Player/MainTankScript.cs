@@ -20,14 +20,8 @@ public class MainTankMovement : MonoBehaviour
     void Update()
     {
         mousePos = Input.mousePosition;
-        float angle;
         float xPos = mousePos.x - /*(Screen.width/2)*/ mainCam.WorldToScreenPoint(main.transform.position).x;
         float yPos = mousePos.y - /*(Screen.height/2)*/ mainCam.WorldToScreenPoint(main.transform.position).y;
-        if(xPos > 0) {
-            angle = Mathf.Atan(yPos / xPos) * Mathf.Rad2Deg;
-        } else {
-            angle = Mathf.Atan(yPos / xPos) * Mathf.Rad2Deg + 180;
-        }
 
         float newAngle = Mathf.Atan2(yPos, xPos) * Mathf.Rad2Deg;
 

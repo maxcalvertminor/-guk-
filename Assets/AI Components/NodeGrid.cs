@@ -62,7 +62,7 @@ public class NodeGrid : MonoBehaviour
     }
     
     public List<Node> path;
-    void OnDrawGizmos() {
+    /*void OnDrawGizmos() {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
         if(grid != null) {
             foreach(Node n in grid) {
@@ -74,7 +74,7 @@ public class NodeGrid : MonoBehaviour
             }
         }
         
-    }
+    }*/
 
     public Node NodeFromWorldPoint(Vector3 worldPosition) {
         float percentX = (worldPosition.x - worldBottomLeft.x) / gridWorldSize.x;

@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Tank-Roguelike.sln"
+    "dotnet.defaultSolution": "[guk].sln"
 }

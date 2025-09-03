@@ -110,43 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arm Actuator_Left
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 4
-        height: 4
-      alignment: 9
-      pivot: {x: 0.8770375, y: 0.49888858}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c65c4144b18b52b45a51693833fb54ad
-      internalID: 788946869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Arm Actuator_Right
+      name: Arm Actuator
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4
-        height: 4
-      alignment: 9
-      pivot: {x: 0.10592588, y: 0.49592578}
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e3a7c88afc057c48acb59948993c79e
-      internalID: -1901226029
+      spriteID: 4182ead48ff14be4fa354d8f232292d4
+      internalID: -1493573451
       vertices: []
       indices: 
       edges: []
@@ -162,8 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Arm Actuator_Left: 788946869
-      Arm Actuator_Right: -1901226029
+      Arm Actuator: -1493573451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -50,27 +50,27 @@ public class Shooting : MonoBehaviour
             scriptLeft.fire();
             ammoLeft--;
         //    ammoSprites[ammoLeft].GetComponent<Image>().sprite = emptyAmmo;
-            Debug.Log(ammoLeft);
+            //Debug.Log(ammoLeft);
         }
         if(Input.GetMouseButtonDown(1) && ammoRight > 0 && hasWeaponRight) {
             scriptRight.fire();
             ammoRight--;
         //    ammoSprites[ammoRight].GetComponent<Image>().sprite = emptyAmmo;
-            Debug.Log(ammoRight);
+            //Debug.Log(ammoRight);
         }
 
         if(Input.GetButtonDown("Reload")) {
 
             if(hasWeaponRight) {
                 ammoRight = scriptRight.getAmmo();
-                Debug.Log(ammoRight + " RIGHT");
+                //Debug.Log(ammoRight + " RIGHT");
                /* for(int i = 0; i < scriptRight.getAmmo(); i++) {
                     ammoSprites[i].GetComponent<Image>().sprite = fullAmmo;
                 } */
             }
             if(hasWeaponLeft) {
                 ammoLeft = scriptLeft.getAmmo();
-                Debug.Log(ammoLeft + " LEFT");
+                //Debug.Log(ammoLeft + " LEFT");
                /* for(int i = 0; i < scriptLeft.getAmmo(); i++) {
                     ammoSprites[i].GetComponent<Image>().sprite = fullAmmo;
                 } */

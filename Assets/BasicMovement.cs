@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
-//teehee
 
 public class BasicMovement : MonoBehaviour
 {
@@ -43,15 +42,15 @@ public class BasicMovement : MonoBehaviour
         Debug.Log("started coroutine");
         float x = point.x - obj.position.x;
         float y = point.y - obj.position.y;
-        float newAngle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
+
+        /*float newAngle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
 
         Quaternion temp = mainTankHead.transform.rotation;
         obj.rotation = Quaternion.Euler(0, 0, newAngle - 90);
-        mainTankHead.transform.rotation = temp;
+        mainTankHead.transform.rotation = temp;*/
 
         while(Vector3.Distance(obj.position, point) > tolerance) {
-            obj.gameObject.GetComponent<Rigidbody2D>().velocity = obj.up * speed;
-            Debug.Log(Vector3.Distance(obj.position, point));
+            obj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y).normalized * speed;
             yield return null;
         }
 
