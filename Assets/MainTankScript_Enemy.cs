@@ -19,6 +19,7 @@ public class MainTankScript_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(active == true) {
             float xPos = mainCam.WorldToScreenPoint(target.transform.position).x - mainCam.WorldToScreenPoint(main.transform.position).x;
             float yPos = mainCam.WorldToScreenPoint(target.transform.position).y - mainCam.WorldToScreenPoint(main.transform.position).y;

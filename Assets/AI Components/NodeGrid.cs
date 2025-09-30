@@ -60,6 +60,34 @@ public class NodeGrid : MonoBehaviour
 
         return neighbors;
     }
+
+    public Node NearestNode(Node node) {
+        List<Node> closedSet = new();
+        Node nearest = null;
+
+        int i = 1;
+        while(true) {
+            for(int x = -i; x <= i; x++) {
+                for(int y = -i; y <= i; y++) {
+                    if(x == 0 && y ==0) {continue;}
+
+                    int checkX = node.gridX + x;
+                    int checkY = node.gridY + y;
+                    if(closedSet.Contains(grid[checkX, checkY])) {continue;}
+
+                    if(!grid[checkX, checkY].walkable) {
+                        closedSet.Add(grid[checkX, checkY]);
+                    } else {
+                        nearest = grid[checkX, checkY];
+                    }
+                }
+            }
+            if(nearest != null) {
+                return nearest;
+            }
+            i++;
+        }
+    }
     
     public List<Node> path;
     /*void OnDrawGizmos() {
@@ -82,6 +110,8 @@ public class NodeGrid : MonoBehaviour
 
         int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
         int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        x = Mathf.Clamp(x, 0, gridSizeX - 1);
+        y = Mathf.Clamp(y, 0, gridSizeY - 1);
         return grid[x, y];
     }
 

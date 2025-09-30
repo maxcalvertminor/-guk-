@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Walls
   - Weapon
+  - Bullet
+  - EnemyProximityTrigger
+  - Enemy
   layers:
   - Default
   - TransparentFX

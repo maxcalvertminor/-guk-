@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pathfinding : MonoBehaviour
 {
-    public Transform seeker, target;
     public NodeGrid grid;
     public List<Node> path;
 
@@ -15,7 +14,7 @@ public class Pathfinding : MonoBehaviour
 
     }
 
-    public void FindPath(Vector3 startPos, Vector3 targetPos) {
+    public void Find(Vector3 startPos, Vector3 targetPos) {
         Node startNode = grid.NodeFromWorldPoint(startPos);
         Node targetNode = grid.NodeFromWorldPoint(targetPos);
         

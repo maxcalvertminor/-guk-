@@ -25,7 +25,6 @@ public class BasicMovement : MonoBehaviour
     {
         if(Input.GetButtonDown("Pebug")) {
             //StartCoroutine(GoToPoint(pathFinding.target.position));
-            pathFinding.FindPath(pathFinding.seeker.position, pathFinding.target.position);
             StartCoroutine(FollowPath(pathFinding.path));
         }
     }
@@ -37,6 +36,16 @@ public class BasicMovement : MonoBehaviour
             Debug.Log("loop finished");
         }
     }
+
+    /*public IEnumerator FollowPath(Vector3 startPos, Vector3 targetPos) {
+        pathFinding.Path(startPos, pathFinding.target.position);
+        foreach(Node n in pathFinding.path) {
+            Debug.Log(n.worldPosition);
+            yield return StartCoroutine(GoToPoint(n.worldPosition));
+            Debug.Log("loop finished");
+        }
+    }*/
+
 
     public IEnumerator GoToPoint(Vector3 point) {
         Debug.Log("started coroutine");
